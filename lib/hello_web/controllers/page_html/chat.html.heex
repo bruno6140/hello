@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Simple</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh; /* ocupa toda la ventana */
+      display: flex;
+      flex-direction: column;
+      background-color: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    #messages {
+      flex: 1; /* ocupa todo el espacio disponible */
+      padding: 10px;
+      overflow-y: auto; /* scroll interno */
+      border-bottom: 2px solid white;
+    }
+
+    #chat-input {
+      border: 2px solid white;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #333;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 10px;
+      border-bottom: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Usuario: <span id="myUid"></span></h1>
+  <h3>Lobby: <span id="currentLobby"></span></h3>
+
+  <div id="messages" role="log"></div>
+  <input id="chat-input" type="text" placeholder="Escribe un mensaje...">
+
+</body>
+</html>

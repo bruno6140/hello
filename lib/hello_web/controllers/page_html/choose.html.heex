@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Elección</title>
+</head>
+<body>
+    <h2>Elige tu nombre y un lobby</h2>
+
+    <form id="choose-form">
+    <input type="text" id="username" placeholder="Tu nombre..." required>
+
+    <h3>Selecciona un lobby:</h3>
+    <select id="lobby" required>
+        <option value="lobby1">Lobby 1</option>
+        <option value="lobby2">Lobby 2</option>
+        <option value="lobby3">Lobby 3</option>
+    </select>
+
+    <button type="submit">Entrar al chat</button>
+    </form>
+
+    <script>
+    document.getElementById("choose-form").addEventListener("submit", (event) => {
+        event.preventDefault()
+
+        const username = document.getElementById("username").value.trim()
+        const lobby = document.getElementById("lobby").value
+
+        if (!username) return alert("Por favor, ingresa un nombre.")
+
+        // Guardamos los datos
+        localStorage.setItem("username", username)
+        localStorage.setItem("lobby", lobby)
+
+        // Redirigimos al chat
+        window.location.href = "/chat"
+    })
+    </script>
+</body>
+</html>
