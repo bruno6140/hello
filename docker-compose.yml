@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  valkey:
+    image: valkey/valkey
+    container_name: myvalkey251107
+    networks:
+      - phoenix251107
+
+  hello:
+    build: .
+    container_name: hello251107
+    depends_on:
+      - valkey
+    networks:
+      - phoenix251107
+    ports:
+      - "4567:4000"
+    environment:
+      PHX_SERVER: "true"
+      SECRET_KEY_BASE: "dummy_secret_1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+
+networks:
+  phoenix251107:
+    driver: bridge

@@ -16,7 +16,7 @@ defmodule Hello.Application do
       # {Hello.Worker, arg},
       # Start to serve requests, typically the last entry
       HelloWeb.Endpoint,
-      {Redix, name: :redix, host: "localhost", port: 6379}
+      {Redix, name: :redix, host: "myvalkey251107", port: 6379}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
