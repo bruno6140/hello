@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (currentLobbyElement) currentLobbyElement.innerText = lobby
 
   // Unirse al canal con el lobby específico
-  const channel = socket.channel(`room:${lobby}`, {})
+  const channel = socket.channel(`room:${lobby}`, { user_id: username })
   const messagesContainer = document.getElementById("messages")
 
   chatInput.addEventListener("keypress", event => {
