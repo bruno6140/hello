@@ -22,9 +22,18 @@ defmodule HelloWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWeb do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    # Endpoint GraphQL
+    forward "/graphql", Absinthe.Plug,
+      schema: HelloWeb.Schema
+
+    # Interfaz gráfica para probar queries
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: HelloWeb.Schema,
+      interface: :simple
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:hello, :dev_routes) do
